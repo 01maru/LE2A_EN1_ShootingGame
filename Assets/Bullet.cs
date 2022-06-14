@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+             other.GetComponent<Enemy>().Damage();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
