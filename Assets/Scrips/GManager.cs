@@ -10,6 +10,14 @@ public class GManager : MonoBehaviour
 
     public GameObject panel;
     public GameObject button;
+    public GameObject gameoverpanel;
+    public GameObject retrybutton;
+    public void SceneReset()
+    {
+        UIController.ResetHP();
+        string activeSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(activeSceneName);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +25,8 @@ public class GManager : MonoBehaviour
         Application.targetFrameRate = 60;
         panel.SetActive(false);
         button.SetActive(false);
+        gameoverpanel.SetActive(false);
+        retrybutton.SetActive(false);
     }
     public void ChangeScene(string nextScene)
     {
@@ -24,6 +34,7 @@ public class GManager : MonoBehaviour
 
         if (nextScene == "Stage")
         {
+            UIController.ResetHP();
             UIController.score = 0;
         }
     }
@@ -33,7 +44,13 @@ public class GManager : MonoBehaviour
     {
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
 
-        if (enemy.Length == 0)  //  “G‚ª‚¢‚È‚­‚È‚Á‚½‚ç
+        if (UIController.playerHP == 0)
+        {
+            gameoverpanel.SetActive(true);
+            button.SetActive(true);
+            retrybutton.SetActive(true);
+        }
+        else if (enemy.Length == 0)  //  “G‚ª‚¢‚È‚­‚È‚Á‚½‚ç
         {
             panel.SetActive(true);
             button.SetActive(true);

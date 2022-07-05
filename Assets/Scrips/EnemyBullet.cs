@@ -18,6 +18,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerBody")
         {
+            UIController.SubPlayerHP();
             Destroy(this.gameObject);
         }
     }

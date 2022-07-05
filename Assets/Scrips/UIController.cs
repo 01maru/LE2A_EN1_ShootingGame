@@ -6,11 +6,25 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     public static int score = 0;
+    public static int playerHP = 1;
     GameObject scoreText;
+
+    public static void ResetHP()
+    {
+        playerHP = 1;
+    }
+
+    public static void SubPlayerHP()
+    {
+        playerHP -= 1;
+    }
 
     public void AddScore()
     {
-        score += 100;
+        if (UIController.playerHP != 0)
+        {
+            score += 100;
+        }
     }
 
     public void ScoreReset()
