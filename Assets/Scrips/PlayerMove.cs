@@ -7,6 +7,8 @@ public class PlayerMove : MonoBehaviour
     Vector3 LeftBottom;
     Vector3 RightTop;
 
+    public float spd = 0.01f;
+
     //  Žq—p
     private float Left, Right, Top, Bottom;
 
@@ -47,19 +49,19 @@ public class PlayerMove : MonoBehaviour
 
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            pos.x += 0.01f;
+            pos.x += spd;
         }
         if(Input.GetKey(KeyCode.LeftArrow))
         {
-            pos.x -= 0.01f;
+            pos.x -= spd;
         }
         if(Input.GetKey(KeyCode.UpArrow))
         {
-            pos.z += 0.01f;
+            pos.z += spd;
         }
         if(Input.GetKey(KeyCode.DownArrow))
         {
-            pos.z -= 0.01f;
+            pos.z -= spd;
         }
 
         transform.position = new Vector3(Mathf.Clamp(pos.x, LeftBottom.x + transform.localScale.x - Left, RightTop.x - transform.localScale.x - Right),

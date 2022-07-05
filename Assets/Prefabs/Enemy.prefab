@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3983944691203782787}
   - component: {fileID: 3306240832211951329}
   - component: {fileID: 5428553250672163424}
+  - component: {fileID: 6084629598526110986}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -136,11 +137,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8058281323202303394}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55ccf5ad267e0de4f934ea428dea16fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beginShotLine: 20
   bullet: {fileID: 4707867283593168886, guid: 8fe4f0ccc131fe44db144450ffbb36ac, type: 3}
   time: 1
   delayTime: 1
@@ -179,3 +181,17 @@ MonoBehaviour:
   bulletWayAxis: 0
   time: 1
   delayTime: 1
+--- !u!114 &6084629598526110986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8058281323202303394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184ab0d474e31e448986c7b95151fce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  deadLine: -20

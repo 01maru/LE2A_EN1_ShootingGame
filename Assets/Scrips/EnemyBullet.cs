@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public float spd = 1;
-    public float time = 2;
+    public float time = 50;
 
     protected Vector3 forward = new Vector3(1, 1, 1);
 

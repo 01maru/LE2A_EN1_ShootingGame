@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyWayShot : MonoBehaviour
+public class EnemyForwardShot : MonoBehaviour
 {
+    public float beginShotLine = 20;
+
     private GameObject player;
     public GameObject bullet;
 
-    public int bulletWayNum = 3;
-    public float bulletWaySpace = 30;
+    //  ’e‚ÌŠÔŠu
     public float time = 1;
     public float delayTime = 1;
     float nowtime = 0;
@@ -42,20 +43,16 @@ public class EnemyWayShot : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
         }
 
-        nowtime -= Time.deltaTime;
-
-        if (nowtime <= 0)
+        if (transform.position.z <= beginShotLine) 
         {
-            float bulletWaySpaceSplit = 0;
+            nowtime -= Time.deltaTime;
 
-            for(int i=0; i < bulletWayNum; i++)
+            if (nowtime <= 0)
             {
-                CreateShotObject(bulletWaySpace - bulletWaySpaceSplit + transform.localEulerAngles.y);
+                CreateShotObject(-transform.localEulerAngles.y);
 
-                bulletWaySpaceSplit += (bulletWaySpace / (bulletWayNum - 1)) * 2;
+                nowtime = time;
             }
-
-            nowtime = time;
         }
     }
 }
